@@ -11,6 +11,7 @@ public class Subscription : Entity
         CreateDate = DateTime.Now;
         LastUpdateDate = DateTime.Now;
         ExpireDate = expireDate;
+        IsActive = true;
         _payments = new List<Payment>();
     }
 

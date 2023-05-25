@@ -18,8 +18,9 @@ public abstract class Payment : Entity
         Address = address;
         Email = email;
 
-        AddNotifications(new Contract<Payment>().Requires()
-        .IsGreaterThan(0, Total, "Payment.Total", "O total nao pode ser zero")
+        AddNotifications(new Contract<Payment>()
+        .Requires()
+        .IsLowerOrEqualsThan(0, Total, "Payment.Total", "O total nao pode ser zero")
         .IsGreaterOrEqualsThan(Total, TotalPaid, "Payment.TotalPaid", "O valor pago e menor que o valor do pagamento")
         );
     }
